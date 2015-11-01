@@ -1,0 +1,251 @@
+//MAIN JAVA FILE MINIPROJECT.JAVA:-
+
+import java.util.*;
+class Miniproject {
+	
+	static long time1=0,time2=0,time3=0;
+	static int choice ,length,AlgoChoice;
+	static int[] array1=new int[length];
+	static int[] array2=new int[length];
+	static int[] array3=new int[length];
+	static int[] clone1 = new int[length];
+	static int[] clone2 = new int[length];
+	static int[] clone3 = new int[length];
+	
+	public static void main(String[] felight) {
+	
+		Scanner scanner=new Scanner(System.in);
+		System.out.println("Enter the length of array");
+		try{
+		length=scanner.nextInt();
+		}catch (Exception ex) 
+		{
+			System.out.println("\"only integer value are valid..... .please try again later\"");
+			System.exit(0);
+		}
+		System.out.println("\t--------------------------------------------------------");
+		System.out.println("\t|                       Scenerio                        |");
+		System.out.println("\t--------------------------------------------------------");
+		System.out.println("\t|                 1 for Best Case Scenerio              |");
+		System.out.println("\t|                 2 for Average Case Scenerio           |");
+		System.out.println("\t|                 3 for Worst Case Scenerio             |");
+		System.out.println("\t---------------------------------------------------------");
+		System.out.println("Enter the Scenerio Number of your choice");
+		try{
+			choice=scanner.nextInt();
+		} catch (Exception ex) 
+		{
+			System.out.println("\"only integer value are valid..... .please try again later\"");
+			System.exit(0);
+			
+		}
+		switch(choice) {
+			case 1:
+				array1=ArrayCal.ArrayOfNaturalNumbers(length);
+				System.out.println("Array of size "+length+" created using \"Best Case Scenerio\"");
+				clone1 = array1.clone();
+				break;
+			case 2:
+				array2=ArrayCal.ArrayOfRandomNumbers(length);
+				System.out.println("Array of size "+length+" created using \"Average Case Scenerio\"");
+				clone2 = array2.clone();
+				break;
+			case 3:
+				ArrayCal.DecendingNaturalNumbers(length);
+				System.out.println("Array of size "+length+" created using \"Worst Case Scenerio\"");
+				clone3 = array3.clone();
+				break;
+			default :
+				System.out.println("\"Please Enter the Valid Scenerio\"");
+				System.exit(0);
+		}
+		System.out.println("\t--------------------------------------------------------");
+		System.out.println("\t|                       Algorithm                        |");
+		System.out.println("\t--------------------------------------------------------");
+		System.out.println("\t|                  1 for Bubble Sort                    |");
+		System.out.println("\t|                  2 for Selection Sort                 |");
+		System.out.println("\t|                  3 for Insertion Sort                 |");
+		System.out.println("\t|                  4 for BenchMark All                  |");
+		System.out.println("\t---------------------------------------------------------");
+		System.out.println("Enter the Algorithm number for BenchMarking");
+		try{
+		AlgoChoice=scanner.nextInt();
+		}catch (Exception ex) 
+		{
+			System.out.println("\"only integer value are valid..... .please try again later\"");
+			System.exit(0);
+		}
+		switch(AlgoChoice) {
+			case 1:
+				if(choice==1){
+					time1=ArrayCal.bubbleSort(clone1);
+					System.out.println("Array is sorted by \"Bubble sort\" in "+time1+" milisecond");
+				}
+				if(choice==2){
+					time2=ArrayCal.bubbleSort(clone2);
+					System.out.println("Array is sorted by \"Bubble sort\" in "+time2+" milisecond");
+				}
+				if(choice==3){
+					time3=ArrayCal.bubbleSort(clone3);
+					System.out.println("Array is sorted by \"Bubble sort\" in "+time3+" milisecond");
+				}	
+				break;
+			case 2:
+				if(choice==1){
+					time1=ArrayCal.selectionSort(clone1);
+					System.out.println("Array is sorted by \"Selection sort\" in "+time1+" milisecond");
+				}
+				if(choice==2){
+					time2=ArrayCal.selectionSort(clone2);
+					System.out.println("Array is sorted by \"Selection sort\" in "+time2+" milisecond");
+				}
+				if(choice==3){
+					time3=ArrayCal.selectionSort(clone3);
+					System.out.println("Array is sorted by \"Selection sort\" in "+time3+" milisecond");
+				}	
+				break;
+			case 3:
+				if(choice==1){
+					time1=ArrayCal.insertionSort(clone1);
+					System.out.println("Array is sorted by \"Insertion sort\" in "+time1+" milisecond");
+				}
+				if(choice==2){
+					time2=ArrayCal.insertionSort(clone2);
+					System.out.println("Array is sorted by \"Insertion sort\" in "+time2+" milisecond");
+				}
+				if(choice==3){
+					time3=ArrayCal.insertionSort(clone3);
+					System.out.println("Array is sorted by \"Insertion sort\" in "+time3+" milisecond");
+				}	
+				break;
+			case 4:
+				if(choice==1){
+				time1=ArrayCal.bubbleSort(clone1);
+				System.out.println("Array is sorted by \"Bubble sort\" in "+time1+" milisecond");
+				time2=ArrayCal.selectionSort(clone1);
+				System.out.println("Array is sorted by \"Selection sort\" in "+time2+" milisecond");
+				time3=ArrayCal.insertionSort(clone1);
+				System.out.println("Array is sorted by \"Insertion sort\" in "+time3+" milisecond");
+				}
+				if(choice==2){
+				time1=ArrayCal.bubbleSort(clone2);
+				System.out.println("Array is sorted by \"Bubble sort\" in "+time1+" milisecond");
+				time2=ArrayCal.selectionSort(clone2);
+				System.out.println("Array is sorted by \"Selection sort\" in "+time2+" milisecond");
+				time3=ArrayCal.insertionSort(clone2);
+				System.out.println("Array is sorted by \"Insertion sort\" in "+time3+" milisecond");
+				}
+				if(choice==3){
+				time1=ArrayCal.bubbleSort(clone3);
+				System.out.println("Array is sorted by \"Bubble sort\" in "+time1+" milisecond");
+				time2=ArrayCal.selectionSort(clone3);
+				System.out.println("Array is sorted by \"Selection sort\" in "+time2+" milisecond");
+				time3=ArrayCal.insertionSort(clone3);
+				System.out.println("Array is sorted by \"Insertion sort\" in "+time3+" milisecond");
+				}
+				break;
+			default :
+				System.out.println("\"Please Enter the Valid Algorithm\"");
+				System.exit(0);
+		}
+	}
+}
+
+
+//OTHER NECESSARY FILE "ARRAYCAL.JAVA":-
+
+class ArrayCal{
+	
+// A method which accepts the size of an array as input and returns an array filled with natural numbers.
+
+	public static int[] ArrayOfNaturalNumbers(int num){
+	
+	int[] array = new int[num];
+	for(int i=0; i<num; i++){
+		array[i]=i+1;
+		}
+	return array;
+	}
+	
+// A method which accepts the size of an array as input and returns an int array filled with random numbers.
+
+	public static int[] ArrayOfRandomNumbers(int num){
+	
+	int[] array = new int[num];
+	for(int i=0; i<num; i++){
+		array[i]=(int)(Math.random()*100);
+	}
+	return array;
+	}
+	
+
+//A method that print decending order Natural number.
+	public static int[] DecendingNaturalNumbers(int num){
+	
+	int[] array = new int[num];
+	for(int i=0; i<array.length; i++){
+		array[i]=num;
+		num--;
+		}
+	return array;
+	}
+	
+//bubble sort
+	public static long bubbleSort(int[] arr) {
+		int i,j,temp=0;
+		int[] array=new int[arr.length];
+		long start=System.currentTimeMillis();
+		for(i=0;i<array.length;i++) {
+			for(j=1;j<(array.length)-i;j++) {
+				if(array[j-1]>array[j]) {
+					temp=array[j-1];
+					array[j-1]=array[j];
+					array[j]=temp;
+				}
+			}
+		}
+		long finish=System.currentTimeMillis();
+		long a=(finish-start);
+		return a;
+	}
+	
+//selection sort
+	public static long selectionSort(int[] arr) {
+	int i,j,temp=0;
+	int[] array=new int[arr.length];
+	long start=System.currentTimeMillis();
+		for(i=0;i<(array.length)-1;i++) {
+			for(j=i+1;j<array.length;j++) {
+				if(array[i]>array[j]) {
+					temp=array[i];
+					array[i]=array[j];
+					array[j]=temp;
+				}
+			}
+		}
+		long finish=System.currentTimeMillis();
+		long b=(finish-start);
+		return b;
+	}
+	
+//insertion sort
+	public static long insertionSort(int[] arr) {
+	int i,j,k,temp=0;
+	int[] array=new int[arr.length];
+	long start=System.currentTimeMillis();
+		for(i=1;i<array.length;i++) {
+			temp=array[i];
+			for(j=0;j<i;j++) {
+				if(temp<array[j]) {
+					for(k=i;k>j;k--)
+					array[k]=array[k-1];
+					array[j]=temp;
+					break;
+				}
+			}
+		}
+		long finish=System.currentTimeMillis();
+		long c=(finish-start);
+		return c;
+	}
+}
